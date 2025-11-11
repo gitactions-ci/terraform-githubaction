@@ -1,0 +1,14 @@
+name: terraform-ec2
+on: [push]
+jobs:
+  terraform:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v5 # Check out your repo code into the runner
+
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v3 # Install Terraform on the runner
+
+      - name: run init
+        run: terraform init # Initialize Terraform in your repo directory
